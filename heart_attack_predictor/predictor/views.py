@@ -6,7 +6,7 @@ TEMPLATE_ROOT = 'predictor'
 
 
 def landing(request):
-    return render(request, path.join(TEMPLATE_ROOT, 'landing.html'))
+    return render(request, 'predictor/landing.html')
 
 
 def signin(request):
