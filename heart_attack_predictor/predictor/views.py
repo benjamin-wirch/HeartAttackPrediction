@@ -1,7 +1,20 @@
 from django.shortcuts import render
+import os
 
-# Create your views here.
+TEMPLATE_ROOT = 'predictor'
 
 
 def home(request):
-    pass
+    return render(request, os.path.join(TEMPLATE_ROOT, 'home.html'))
+
+
+def signin(request):
+    return render(request, os.path.join(TEMPLATE_ROOT, 'signin.html'))
+
+
+def signup(request):
+    return render(request, os.path.join(TEMPLATE_ROOT, 'signup.html'))
+
+
+def dashboard(request):
+    return render(request, os.path.join(TEMPLATE_ROOT, 'dashboard.html'))

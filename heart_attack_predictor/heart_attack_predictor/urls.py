@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from predictor.views import home, dashboard, signin, signup
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home),
+    path('dashboard/', dashboard),
+    path('signin/', signin),
+    path('signup/', signup),
 ]
