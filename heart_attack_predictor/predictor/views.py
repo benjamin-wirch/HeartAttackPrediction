@@ -1,20 +1,26 @@
 from django.shortcuts import render
-import os
+from django.contrib.auth.decorators import login_required
+from os import path
 
 TEMPLATE_ROOT = 'predictor'
 
 
-def home(request):
-    return render(request, os.path.join(TEMPLATE_ROOT, 'home.html'))
+def landing(request):
+    return render(request, path.join(TEMPLATE_ROOT, 'landing.html'))
 
 
 def signin(request):
-    return render(request, os.path.join(TEMPLATE_ROOT, 'signin.html'))
+    return render(request, path.join(TEMPLATE_ROOT, 'signin.html'))
 
 
 def signup(request):
-    return render(request, os.path.join(TEMPLATE_ROOT, 'signup.html'))
+    return render(request, path.join(TEMPLATE_ROOT, 'signup.html'))
 
 
 def dashboard(request):
-    return render(request, os.path.join(TEMPLATE_ROOT, 'dashboard.html'))
+    return render(request, path.join(TEMPLATE_ROOT, 'dashboard.html'))
+
+
+@login_required
+def stats(request):
+    return render(request, path.join(TEMPLATE_ROOT, 'dashboard.html'))
