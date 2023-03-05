@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root, body {
+    height: 100%;
+    width: 100%;
+    --header-height: 10vh;
+    --footer-height: 5vh;
+
+    --header-color: #994636;
+    --footer-color: #dbdbae;
+    --main-color: #ca9073;
+}
+
+header {
+    height: var(--header-height);
+    background: var(--header-color);
+}
+
+footer {
+    height: var(--footer-height);
+    background: var(--footer-color);
+}
+
+main {
+    height: calc(100% - calc(var(--footer-height) + var(--header-height)));
+    background: var(--main-color);
+}
