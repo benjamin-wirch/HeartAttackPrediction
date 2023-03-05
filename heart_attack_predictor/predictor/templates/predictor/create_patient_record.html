@@ -15,9 +15,15 @@ Create Patient Record
 
 
 {% block content %}
+{{ csrf_token }}
 <section class="content-wrapper">
     <section class="cpr-box">
         <div data-role="left">
+            <label>
+                Patient username:
+                <input type="text" id="username">
+            </label>
+            <br>
             <label>
                 Name:
                 <input type="text" id="name">
@@ -25,22 +31,117 @@ Create Patient Record
             <br>
             <label>
                 Age:
-                <input type="number" id="age">
+                <input type="text" id="age">
             </label>
             <br>
             <span>
-            Sex:
-            <label>
-                <input type="radio" name="sex" value="Male"> Male
-            </label>
-            <label>
-                <input type="radio" name="sex" value="Female"> Female
-            </label>
+                Sex:
+                <label>
+                    <input type="radio" name="sex" value="0"> Male
+                </label>
+                <label>
+                    <input type="radio" name="sex" value="1"> Female
+                </label>
             </span>
+            <br>
+            <span>
+                Chest pain:
+                <label>
+                    <input type="radio" name="chest-pain" value="0"> 0
+                </label>
+                <label>
+                    <input type="radio" name="chest-pain" value="1"> 1
+                </label>
+                <label>
+                    <input type="radio" name="chest-pain" value="2"> 2
+                </label>
+                <label>
+                    <input type="radio" name="chest-pain" value="3"> 3
+                </label>
+            </span>
+            <br>
+            <label>
+                Resting Blood Pressure:
+                <input type="text" id="blood-pressure">
+            </label>
+            <br>
+            <label>
+                Serum Cholestrol
+                <input type="text" id="serum-cholestrol">
+            </label>
         </div>
         <div data-role="right">
-
+            <span>
+                Fasting Blood Sugar > 120 mg/dl:
+                <label>
+                    <input type="radio" name="fasting-blood-sugar" value="1"> Yes
+                </label>
+                <label>
+                    <input type="radio" name="fasting-blood-sugar" value="0"> No
+                </label>
+            </span>
+            <br>
+            <span>
+                Resting ECG Results:
+                <label>
+                    <input type="radio" name="ecg" value="0"> 0
+                </label>
+                <label>
+                    <input type="radio" name="ecg" value="1"> 1
+                </label>
+                <label>
+                    <input type="radio" name="ecg" value="2"> 2
+                </label>
+            </span>
+            <br>
+            <label>
+                Max Heart Rate:
+                <input type="text" id="max-heart-rate">
+            </label>
+            <br>
+            <span>
+                Exercise Induced Angina:
+                <label>
+                    <input type="radio" name="angina" value="1"> Yes
+                </label>
+                <label>
+                    <input type="radio" name="angina" value="0"> No
+                </label>
+            </span>
+            <br>
+            <span>
+                Flouroscopy Results:
+                <label>
+                    <input type="radio" name="flouroscopy" value="0"> 0
+                </label>
+                <label>
+                    <input type="radio" name="flouroscopy" value="1"> 1
+                </label>
+                <label>
+                    <input type="radio" name="flouroscopy" value="2"> 2
+                </label>
+                <label>
+                    <input type="radio" name="flouroscopy" value="3"> 3
+                </label>
+            </span>
+            <br>
+            <span>
+                Thalassaemia:<br>
+                <label>
+                    <input type="radio" name="thalassaemia" value="1"> Normal
+                </label><br>
+                <label>
+                    <input type="radio" name="thalassaemia" value="2"> Fixed Defect
+                </label><br>
+                <label>
+                    <input type="radio" name="thalassaemia" value="3"> Reversable Defect
+                </label>
+            </span>
         </div>
     </section>
+
+    <span data-role="create-btn">
+        Create Record
+    </span>
 </section>
 {% endblock %}

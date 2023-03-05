@@ -9,18 +9,61 @@
     width: 100%;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 }
 
 .cpr-box {
     background: var(--cpr-box-bg-color);
-    width: clamp(60svw, 60vh, 60svh);
+    width: clamp(70svw, 70vh, 70svh);
     height: clamp(40svw, 40vh, 40svh);
     padding: 1.2rem;
 
     border-radius: 20px;
 
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+}
+
+div[data-role="left"] {
+    display: flex;
     flex-direction: column;
+    gap: 1rem;
+}
+
+div[data-role="right"] {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input[type="text"] {
+    padding-inline-start: 0.5rem;
+    border: none;
+    outline: none;
+    border-radius: 999px;
+    background: var(--main-bg-color);
+    color: var(--footer-bg-color);
+    text-shadow: 1px 1px 3px black;
+    line-height: 1.2rem;
+    box-shadow: 0px 0px 3px 3px var(--header-bg-color);
+}
+
+span[data-role="create-btn"]:hover {
+    cursor: pointer;
+}
+
+span[data-role="create-btn"] {
+    text-align: center;
+    padding: 0.4rem 1.2rem;
+    background: var(--header-bg-color);
+    border-radius: 999px;
+    color: var(--footer-bg-color);
+    text-shadow: 2px 1px 3px black;
 }
