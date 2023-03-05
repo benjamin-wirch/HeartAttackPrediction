@@ -7,13 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heart Attack Predictor</title>
     <link rel="stylesheet" href="{% static 'predictor/main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    {% block stylesheets %}
+    {% endblock %}
+    {% block scripts %}
+    {% endblock %}
 </head>
 <body>
-    <header></header>
+    <header>
+        My Heart
+    </header>
     <main>
         {% block content %}
         {% endblock %}
     </main>
-    <footer></footer>
+    <footer>
+        Made with ❤️  by Ben and MK!
+    </footer>
 </body>
 </html>

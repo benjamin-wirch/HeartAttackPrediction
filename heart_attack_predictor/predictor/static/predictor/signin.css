@@ -1,0 +1,123 @@
+:root {
+    --sign-in-box-bg-color: #eaf4d3;
+    --border-color: #895b1e;
+    --error-color: #aa0000;
+}
+
+.content-wrapper {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-in-box {
+    background: var(--sign-in-box-bg-color);
+    aspect-ratio: 1 / 1;
+    width: clamp(40svw, 40vh, 40svh);
+    padding: 1.2rem;
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+div[data-role="welcome-msg"] {
+    font-size: 3rem;
+    text-align: center;
+    padding: 1.5rem;
+    flex: 1;
+    text-shadow: 2px 2px 1px var(--main-bg-color);
+}
+
+section[data-role="sign-in-prompts"] {
+    flex: 3;
+}
+
+section[data-role="sign-in-prompts"] > div[data-role] {
+    flex: 1;
+}
+
+section[data-role="sign-in-prompts"] {
+    padding-inline-end: 1.5rem;
+    padding-inline-start: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    font-size: 1.5rem;
+}
+
+div[data-role="username-container"],
+div[data-role="password-container"],
+div[data-role="sign-in-btn-container"],
+div[data-role="sign-up-instead-container"] {
+    margin-inline: auto;
+}
+
+label[for] {
+    text-shadow: 1px 1px 3px var(--header-bg-color);
+}
+
+small.error {
+    flex: 0.2;
+    font-size: 0.6rem;
+    color: var(--error-color);
+    display: none;
+}
+
+small.error::before{
+    content: "*";
+}
+
+div[data-role="show-password-container"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 5px;
+}
+
+label[data-role="show-password"] {
+    font-size: 1rem;
+}
+
+input[id] {
+    font-size: 1.2rem;
+    padding: .3rem;
+    padding-inline-start: 0.5rem;
+    border: none;
+    outline: none;
+    border-radius: 999px;
+    background: var(--main-bg-color);
+    color: var(--footer-bg-color);
+    text-shadow: 1px 1px 3px black;
+    line-height: 1.2rem;
+    box-shadow: 0px 0px 3px 3px var(--header-bg-color);
+}
+
+div[data-role="sign-up-instead-container"] {
+    font-size: 1.2rem;
+}
+
+div[data-role="sign-in-btn-container"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span[data-role="sign-in"] {
+    text-align: center;
+    padding: 0.4rem 1.2rem;
+    background: var(--main-bg-color);
+    border-radius: 999px;
+    color: var(--footer-bg-color);
+    text-shadow: 2px 1px 3px black;
+}
+
+a[data-role="sign-up-redirect"] {
+    color: var(--header-bg-color);
+}

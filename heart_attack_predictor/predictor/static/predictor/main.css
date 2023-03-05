@@ -6,28 +6,43 @@
     box-sizing: border-box;
 }
 
-:root, body {
-    height: 100%;
-    width: 100%;
+:root {
     --header-height: 10vh;
     --footer-height: 5vh;
 
-    --header-color: #994636;
-    --footer-color: #dbdbae;
-    --main-color: #ca9073;
+    --header-bg-color: #994636;
+    --footer-bg-color: #dbdbae;
+    --main-bg-color: #ca9073;
+}
+
+:root, body {
+    height: 100%;
+    width: 100%;
+
+    font-size: 16px;
+    font-family: 'Source Code Pro', monospace;
 }
 
 header {
     height: var(--header-height);
-    background: var(--header-color);
+    background: var(--header-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    color: var(--footer-bg-color);
+    text-shadow: 2px 2px 4px grey;
 }
 
 footer {
     height: var(--footer-height);
-    background: var(--footer-color);
+    background: var(--footer-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
     height: calc(100% - calc(var(--footer-height) + var(--header-height)));
-    background: var(--main-color);
+    background: var(--main-bg-color);
 }

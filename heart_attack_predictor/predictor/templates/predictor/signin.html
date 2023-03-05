@@ -1,0 +1,54 @@
+{% extends "predictor/base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'predictor/signin.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="content-wrapper">
+    <section class="sign-in-box">
+        <div data-role="welcome-msg">
+            Welcome Back!
+        </div>
+        <section data-role="sign-in-prompts">
+            <div data-role="username-container">
+                <label for="username-input" data-role="username-label">
+                    Username:
+                </label>
+                <input id="username-input" type="text">
+                <br>
+                <small data-role="username-error" class="error">
+                    A username is required to sign you in!
+                </small>
+            </div>
+            <div data-role="password-container">
+                <label for="password-input" data-role="password-label">
+                    Password:
+                </label>
+                <input id="password-input" type="password" autocomplete="false">
+                <br>
+                <div data-role="show-password-container">
+                    <label data-role="show-password">
+                        <input type="checkbox"> Show Password
+                    </label>
+                </div>
+                <!-- <br> -->
+                <small data-role="password-error" class="error">
+                    A password is required to sign you in!
+                </small>
+            </div>
+            <div data-role="sign-in-btn-container">
+                <span data-role="sign-in">
+                    Sign in
+                </span>
+            </div>
+            <div data-role="sign-up-instead-container">
+                <small>
+                    Don't have an account? <a data-role="sign-up-redirect" href="{% url 'signup' %}">Sign up</a>!
+                </small>
+            </div>
+        </section>
+    </section>
+</section>
+{% endblock %}

@@ -36,14 +36,14 @@ def landing(request):
     return render(request, path.join(TEMPLATE_ROOT, 'landing.html'))
 
 
-@redirect_to_dashboard
+# @redirect_to_dashboard
 @control_method(('GET', 'POST',))
 def signin(request):
     if request.method == 'GET':
         return render(request, path.join(TEMPLATE_ROOT, 'signin.html'))
 
 
-@redirect_to_dashboard
+# @redirect_to_dashboard
 @control_method(('GET', 'POST',))
 def signup(request):
     if request.method == 'GET':
