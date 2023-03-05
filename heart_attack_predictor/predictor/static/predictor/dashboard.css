@@ -16,7 +16,7 @@
 }
 
 
-section[data-role="data"] {
+section[data-role="patient-data"] {
     background: var(--box-bg-color);
     aspect-ratio: 1 / 1;
     width: clamp(45svw, 45vh, 45svh);
@@ -29,11 +29,51 @@ section[data-role="data"] {
 }
 
 
-section[data-role="data"] > div {
+section[data-role="patient-data"] > div {
     display: flex;
     flex-direction: row;
 
     justify-content: space-between;
 
     border-bottom: 2px solid var(--border-color);
+}
+
+section[data-role="doctor-data"] {
+    background: var(--box-bg-color);
+    width: clamp(80svw, 80vw, 80svw);
+    height: clamp(80svh, 80vh, 80svh);
+    padding: 1.2rem;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1.1rem;
+    text-align: center;
+}
+
+.card {
+    box-shadow: 0px 2px 5px grey;
+
+    background: var(--footer-bg-color);
+
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border-radius: 5%;
+
+    transition: scale 500ms;
+}
+
+.card:hover {
+    scale: 1.1;
+    transition: scale 500ms;
+}
+
+
+.card > ul {
+    list-style: none;
 }

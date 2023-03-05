@@ -1,9 +1,4 @@
-from data import load_data
-from tensorflow.keras.models import Sequential, load_model
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.utils import to_categorical
-from sklearn.model_selection import train_test_split
-import numpy as np
+
 
 
 X, y = load_data()
@@ -14,25 +9,6 @@ print(f'{len(X_train) = }')
 print(f'{len(X_test) = }')
 print(f'{len(y_train) = }')
 print(f'{len(y_test) = }')
-
-
-def create_model():
-    model = Sequential(
-        [
-            Dense(32, input_dim=11, activation='tanh'),
-            Dense(64, activation='relu'),
-            Dense(128, activation='tanh'),
-            Dense(256, activation='relu'),
-            Dense(128, activation='tanh'),
-            Dense(64, activation='tanh'),
-            Dense(32, activation='relu'),
-            Dense(16, activation='tanh'),
-            Dense(4, activation='tanh'),
-            Dense(1, activation='sigmoid'),
-        ]
-    )
-    model.compile(loss='mse', optimizer='rmsprop', metrics=['accuracy'])
-    return model
 
 
 # model = create_model()

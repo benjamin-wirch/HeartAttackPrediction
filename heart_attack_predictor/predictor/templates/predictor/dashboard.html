@@ -15,10 +15,33 @@ Dashboard - {{ user.username }}
 {% block content %}
 {% if record.is_doctor %}
 <section class="content-wrapper">
+    <section data-role="doctor-data">
+        {% for patient in patients %}
+        <div class="card">
+            <ul>
+                <li>
+                    {{ patient.name }}
+                </li>
+                <li>
+                    {{ patient.age }} y/o
+                    {% if patient.sex %}
+                    Female
+                    {% else %}
+                    Male
+                    {% endif %}
+                </li>
+            </ul>
+
+            <span>
+                Set up an appointment
+            </span>
+        </div>
+        {% endfor %}
+    </section>
 </section>
 {% else %}
 <section class="content-wrapper">
-    <section data-role="data">
+    <section data-role="patient-data">
         <div>
             <span>
                 Name
