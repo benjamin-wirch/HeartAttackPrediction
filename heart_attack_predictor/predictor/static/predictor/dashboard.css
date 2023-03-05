@@ -1,0 +1,39 @@
+:root {
+    --box-bg-color: #eaf4d3;
+    --border-color: #895b1e;
+    --error-color: #aa0000;
+}
+
+
+.content-wrapper {
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+section[data-role="data"] {
+    background: var(--box-bg-color);
+    aspect-ratio: 1 / 1;
+    width: clamp(45svw, 45vh, 45svh);
+    padding: 1.2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    text-align: center;
+}
+
+
+section[data-role="data"] > div {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    border-bottom: 2px solid var(--border-color);
+}

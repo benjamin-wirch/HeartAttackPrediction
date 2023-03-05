@@ -38,70 +38,70 @@ $('span[data-role="create-btn"]').on('click', event => {
         chest_pain = chest_pain.value
     }
 
-    const blood_pressure = parseInt($('input#blood-pressure').val().trim())
+    const resting_blood_pressure = parseInt($('input#blood-pressure').val().trim())
 
-    if (blood_pressure === NaN or blood_pressure < 0) {
+    if (resting_blood_pressure === NaN || resting_blood_pressure < 0) {
         alert('Invalid Blood Pressure. Blood Pressure is a required field!')
         return
     }
 
     const serum_cholestrol = parseInt($('input#serum-cholestrol').val().trim())
 
-    if (serum_cholestrol === NaN or serum_cholestrol < 0) {
+    if (serum_cholestrol === NaN || serum_cholestrol < 0) {
         alert('Invalid Serum Cholestrol. Serum Cholestrol is a required field!')
         return
     }
 
-    let blood_sugar = Array.from($('input[name="fasting-blood_sugar"]').list()).find(radio => radio.get().checked)
+    let fasting_blood_sugar = Array.from($('input[name="fasting-blood-sugar"]').list()).find(radio => radio.get().checked)
 
-    if (!blood_sugar) {
+    if (!fasting_blood_sugar) {
         alert('Fasting Blood Sugar is a required field!')
         return
     } else {
-        blood_sugar = blood_sugar.value
+        fasting_blood_sugar = fasting_blood_sugar.value
     }
 
-    let ecg = Array.from($('input[name="ecg"]').list()).find(radio => radio.get().checked)
+    let resting_ecg = Array.from($('input[name="ecg"]').list()).find(radio => radio.get().checked)
 
-    if (!ecg) {
+    if (!resting_ecg) {
         alert('Resting ECG is a required field!')
         return
     } else {
-        ecg = ecg.value
+        resting_ecg = resting_ecg.value
     }
 
     const max_heart_rate = parseInt($('input#max-heart-rate').val().trim())
 
-    if (max_heart_rate === NaN or max_heart_rate < 0) {
+    if (max_heart_rate === NaN || max_heart_rate < 0) {
         alert('Invalid Heart Rate. Heart Rate is a required field!')
         return
     }
 
-    let angina = Array.from($('input[name="angina"]').list()).find(radio => radio.get().checked)
+    let exercise_induced_angina = Array.from($('input[name="angina"]').list()).find(radio => radio.get().checked)
 
-    if (!angina) {
+    if (!exercise_induced_angina) {
         alert('Exercise Angina is a required field!')
         return
     } else {
-        angina = angina.value
+        exercise_induced_angina = exercise_induced_angina.value
     }
 
-    let flouroscopy = Array.from($('input[name="flouroscopy"]').list()).find(radio => radio.get().checked)
+    let fluoroscopy_count = Array.from($('input[name="flouroscopy"]').list()).find(radio => radio.get().checked)
 
-    if (!flouroscopy) {
-        alert('Flouroscopy is a required field!')
+    if (!fluoroscopy_count) {
+        alert('Fluoroscopy is a required field!')
         return
     } else {
-        flouroscopy = flouroscopy.value
+        fluoroscopy_count = fluoroscopy_count.value
     }
 
-    let thalassaemia = Array.from($('input[name="thalassaemia"]').list()).find(radio => radio.get().checked)
+    let thalassemia = Array.from($('input[name="thalassaemia"]').list()).find(radio => radio.get().checked)
 
-    if (!thalassaemia) {
+    if (!thalassemia) {
         alert('Thalassaemia is a required field!')
         return
     } else {
-        thalassaemia = thalassaemia.value
+        thalassemia = thalassemia.value
     }
 
     fetch('/create-patient-record/', {
@@ -116,22 +116,24 @@ $('span[data-role="create-btn"]').on('click', event => {
         age,
         sex,
         chest_pain,
-        blood_pressure,
+        resting_blood_pressure,
         serum_cholestrol,
-        blood_sugar,
-        ecg,
+        fasting_blood_sugar,
+        resting_ecg,
         max_heart_rate,
-        angina,
-        flouroscopy,
-        thalassaemia,
+        exercise_induced_angina,
+        fluoroscopy_count,
+        thalassemia,
       })
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            window.location.replace('/dashboard/')
+            alert('Created Successfully!')
+            $('label > input[id]').val('')
+            $('input[type="radio"]').each(e => {e.get().checked = false})
         } else {
-            alert('Unexpected Error Occurred!')
+            alert(`Unexpected Error Occurred!\n${data.reason}`)
         }
     })
 })

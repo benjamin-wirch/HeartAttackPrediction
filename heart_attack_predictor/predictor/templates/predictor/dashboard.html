@@ -7,3 +7,134 @@
 Dashboard - {{ user.username }}
 
 {% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'predictor/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+{% if record.is_doctor %}
+<section class="content-wrapper">
+</section>
+{% else %}
+<section class="content-wrapper">
+    <section data-role="data">
+        <div>
+            <span>
+                Name
+            </span>
+            <span>
+                {{ record.name }}
+            </span>
+        </div>
+        <div>
+            <span>
+                Age
+            </span>
+            <span>
+                {{ record.age }} years
+            </span>
+        </div>
+        <div>
+            <span>
+                Sex
+            </span>
+            <span>
+                {% if record.sex %}
+                Female
+                {% else %}
+                Male
+                {% endif %}
+            </span>
+        </div>
+        <div>
+            <span>
+                Chest Pain
+            </span>
+            <span>
+                Type - {{ record.chest_pain }}
+            </span>
+        </div>
+        <div>
+            <span>
+                Resting Blood Pressure
+            </span>
+            <span>
+                {{ record.resting_blood_pressure }} mmHg
+            </span>
+        </div>
+        <div>
+            <span>
+                Serum Cholestrol
+            </span>
+            <span>
+                {{ record.serum_cholestrol }} mg/dl
+            </span>
+        </div>
+        <div>
+            <span>
+                Fasting Blood Sugar > 120 mg/dl
+            </span>
+            <span>
+                {% if record.fasting_blood_sugar %}
+                Yes
+                {% else %}
+                No
+                {% endif %}
+            </span>
+        </div>
+        <div>
+            <span>
+                Resting Ecg
+            </span>
+            <span>
+                Type - {{ record.resting_ecg }}
+            </span>
+        </div>
+        <div>
+            <span>
+                Max. Heart Rate
+            </span>
+            <span>
+                {{ record.max_heart_rate }} bps
+            </span>
+        </div>
+        <div>
+            <span>
+                Exercise Induced Angina
+            </span>
+            <span>
+                {% if record.exercise_induced_angina %}
+                Yes
+                {% else %}
+                No
+                {% endif %}
+            </span>
+        </div>
+        <div>
+            <span>
+                Fluoroscopy Count
+            </span>
+            <span>
+                {{ record.fluoroscopy_count }}
+            </span>
+        </div>
+        <div>
+            <span>
+                Thalassemia
+            </span>
+            <span>
+                {% if record.thalassemia == 0 %}
+                Normal
+                {% elif record.thalassemia == 1 %}
+                Fixed Defect
+                {% else %}
+                Reversable Defect
+                {% endif %}
+            </span>
+        </div>
+
+    </section>
+</section>
+{% endif %}
+{% endblock %}

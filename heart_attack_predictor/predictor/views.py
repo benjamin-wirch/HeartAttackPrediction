@@ -37,7 +37,7 @@ def redirect_to_dashboard(func):
 
 @control_method(('GET',))
 def landing(request):
-    return render(request, path.join(TEMPLATE_ROOT, 'landing.html'))
+    return redirect('signin')
 
 
 @redirect_to_dashboard
@@ -62,8 +62,6 @@ def signin(request):
 
         return JsonResponse({'success': False})
     except Exception:
-        import traceback
-        print(traceback.format_exc())
         return JsonResponse({'success': False})
 
 
@@ -98,6 +96,7 @@ def signup(request):
 
 
 @login_required(login_url='signin')
+@control_method(('GET', 'POST',))
 def create_patient_record(request):
     record = Record.objects.get(pk=request.user.id)
 
@@ -107,14 +106,46 @@ def create_patient_record(request):
     if request.method == 'GET':
         return render(request, path.join(TEMPLATE_ROOT, 'create_patient_record.html'))
 
+    data = json.loads(request.body)
+
+    print('data = n',)
+
+    username = data.get('username')
+
+    user = User.objects.filter(username=username).first()
+
+    if not user:
+        return JsonResponse(
+            {
+                'success': False,
+                'reason': f'No user with {username = }',
+            }
+        )
+
+    data.pop('username', None)
+
+    record = Record.objects.get(pk=user.id)
+    record.name = data.get('name')
+    record.age = data.get('age')
+    record.sex = data.get('sex')
+    record.chest_pain = data.get('chest_pain')
+    record.resting_blood_pressure = data.get('resting_blood_pressure')
+    record.serum_cholestrol = data.get('serum_cholestrol')
+    record.fasting_blood_sugar = data.get('fasting_blood_sugar')
+    record.resting_ecg = data.get('resting_ecg')
+    record.max_heart_rate = data.get('max_heart_rate')
+    record.exercise_induced_angina = data.get('exercise_induced_angina')
+    record.fluoroscopy_count = data.get('fluoroscopy_count')
+    record.thalassemia = data.get('thalassemia')
+
+    record.save(update_fields=list(data.keys()))
+
+    return JsonResponse({'success': True})
+
 
 @control_method(('GET', 'POST',))
 def dashboard(request):
     if request.method == 'GET':
-        return render(request, path.join(TEMPLATE_ROOT, 'dashboard.html'))
-
-
-@login_required(login_url='signin')
-def stats(request):
-    if request.method == 'GET':
-        return render(request, path.join(TEMPLATE_ROOT, 'stats.html'))
+        user = User.objects.filter(username=request.user.username).first()
+        record = Record.objects.filter(user=user).first()
+        return render(request, path.join(TEMPLATE_ROOT, 'dashboard.html'), context={'record': record})

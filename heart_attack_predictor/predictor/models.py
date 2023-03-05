@@ -20,7 +20,7 @@ class Record(models.Model):
 
     fasting_blood_sugar = models.BooleanField(null=True, blank=True)
 
-    resting_ecg = models.BooleanField(null=True, blank=True)
+    resting_ecg = models.PositiveSmallIntegerField(null=True, blank=True)
 
     max_heart_rate = models.PositiveIntegerField(null=True, blank=True)
 
@@ -36,7 +36,7 @@ class Record(models.Model):
     is_doctor = models.BooleanField(null=True, default=False, blank=True)
 
     def __repr__(self):
-        return self.name if self.name else super().__repr__(self)
+        return self.name if self.name else super().__repr__()
 
     def __str__(self):
-        return self.name if self.name else super().__str__(self)
+        return self.name if self.name else super().__str__()

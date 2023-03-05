@@ -15,8 +15,8 @@ Create Patient Record
 
 
 {% block content %}
-{{ csrf_token }}
 <section class="content-wrapper">
+    {% csrf_token %}
     <section class="cpr-box">
         <div data-role="left">
             <label>
