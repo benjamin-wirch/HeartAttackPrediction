@@ -1,0 +1,46 @@
+{% extends "predictor/base.html" %}
+{% load static %}
+
+{% block title %}
+Create Patient Record
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'predictor/create_patient_record.css' %}">
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'predictor/create_patient_record.js' %}" defer></script>
+{% endblock %}
+
+
+{% block content %}
+<section class="content-wrapper">
+    <section class="cpr-box">
+        <div data-role="left">
+            <label>
+                Name:
+                <input type="text" id="name">
+            </label>
+            <br>
+            <label>
+                Age:
+                <input type="number" id="age">
+            </label>
+            <br>
+            <span>
+            Sex:
+            <label>
+                <input type="radio" name="sex" value="Male"> Male
+            </label>
+            <label>
+                <input type="radio" name="sex" value="Female"> Female
+            </label>
+            </span>
+        </div>
+        <div data-role="right">
+
+        </div>
+    </section>
+</section>
+{% endblock %}

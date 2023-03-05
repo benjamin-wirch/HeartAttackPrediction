@@ -1,0 +1,26 @@
+:root {
+    --cpr-box-bg-color: #eaf4d3;
+    --border-color: #895b1e;
+    --error-color: #aa0000;
+}
+
+.content-wrapper {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cpr-box {
+    background: var(--cpr-box-bg-color);
+    width: clamp(60svw, 60vh, 60svh);
+    height: clamp(40svw, 40vh, 40svh);
+    padding: 1.2rem;
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+}

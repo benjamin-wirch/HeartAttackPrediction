@@ -2,24 +2,24 @@
 {% load static %}
 
 {% block title %}
-Hearta.tech - Sign in
+Hearta.tech - Sign up
 {% endblock %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{% static 'predictor/signin.css' %}">
+<link rel="stylesheet" href="{% static 'predictor/signup.css' %}">
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static 'predictor/signin.js' %}" defer></script>
+<script src="{% static 'predictor/signup.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}
 <section class="content-wrapper">
-    <section class="sign-in-box">
+    <section class="sign-up-box">
         <div data-role="welcome-msg">
-            Welcome Back!
+            Welcome
         </div>
-        <section data-role="sign-in-prompts">
+        <section data-role="sign-up-prompts">
             {% csrf_token %}
             <div data-role="username-container">
                 <label for="username-input" data-role="username-label">
@@ -28,7 +28,7 @@ Hearta.tech - Sign in
                 <input id="username-input" type="text">
                 <br>
                 <small data-role="username-error" class="error">
-                    A username is required to sign you in!
+                    A username is required to sign you up!
                 </small>
             </div>
             <div data-role="password-container">
@@ -44,17 +44,17 @@ Hearta.tech - Sign in
                 </div>
                 <!-- <br> -->
                 <small data-role="password-error" class="error">
-                    A password is required to sign you in!
+                    A password is required to sign you up!
                 </small>
             </div>
-            <div data-role="sign-in-btn-container">
-                <span data-role="sign-in">
-                    Sign in
+            <div data-role="sign-up-btn-container">
+                <span data-role="sign-up">
+                    Sign up
                 </span>
             </div>
             <div data-role="sign-up-instead-container">
                 <small>
-                    Don't have an account? <a data-role="sign-up-redirect" href="{% url 'signup' %}">Sign up</a>!
+                    Already have an account? <a data-role="sign-in-redirect" href="{% url 'signin' %}">Sign in</a>!
                 </small>
             </div>
         </section>

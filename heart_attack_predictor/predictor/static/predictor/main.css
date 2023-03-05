@@ -13,6 +13,8 @@
     --header-bg-color: #994636;
     --footer-bg-color: #dbdbae;
     --main-bg-color: #ca9073;
+
+    user-select: none;
 }
 
 :root, body {

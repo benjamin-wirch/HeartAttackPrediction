@@ -6,7 +6,7 @@ $('input[type="checkbox"]').on('click', event => {
     }
 })
 
-$('span[data-role="sign-in"]').on('click', event => {
+$('span[data-role="sign-up"]').on('click', event => {
     let error = false
     const username = $('input#username-input').val().trim().toLowerCase()
     if (username === '') {
@@ -28,7 +28,7 @@ $('span[data-role="sign-in"]').on('click', event => {
 
     if (error) return
 
-    fetch(`/signin/`, {
+    fetch(`/signup/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ $('span[data-role="sign-in"]').on('click', event => {
         if (data.success) {
             window.location.replace('/dashboard/')
         } else {
-            alert('Invalid username or incorrect password!')
+            alert('Unexpected Error Occurred!')
             console.error({username, password});
         }
     })

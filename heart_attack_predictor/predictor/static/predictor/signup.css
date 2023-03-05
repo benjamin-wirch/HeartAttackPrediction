@@ -1,5 +1,5 @@
 :root {
-    --sign-in-box-bg-color: #eaf4d3;
+    --sign-up-box-bg-color: #eaf4d3;
     --border-color: #895b1e;
     --error-color: #aa0000;
 }
@@ -13,8 +13,8 @@
     align-items: center;
 }
 
-.sign-in-box {
-    background: var(--sign-in-box-bg-color);
+.sign-up-box {
+    background: var(--sign-up-box-bg-color);
     aspect-ratio: 1 / 1;
     width: clamp(40svw, 40vh, 40svh);
     padding: 1.2rem;
@@ -33,15 +33,15 @@ div[data-role="welcome-msg"] {
     text-shadow: 2px 2px 1px var(--main-bg-color);
 }
 
-section[data-role="sign-in-prompts"] {
+section[data-role="sign-up-prompts"] {
     flex: 3;
 }
 
-section[data-role="sign-in-prompts"] > div[data-role] {
+section[data-role="sign-up-prompts"] > div[data-role] {
     flex: 1;
 }
 
-section[data-role="sign-in-prompts"] {
+section[data-role="sign-up-prompts"] {
     padding-inline-end: 1.5rem;
     padding-inline-start: 1.5rem;
     display: flex;
@@ -53,7 +53,7 @@ section[data-role="sign-in-prompts"] {
 
 div[data-role="username-container"],
 div[data-role="password-container"],
-div[data-role="sign-in-btn-container"],
+div[data-role="sign-up-btn-container"],
 div[data-role="sign-up-instead-container"] {
     margin-inline: auto;
 }
@@ -107,17 +107,17 @@ div[data-role="sign-up-instead-container"] {
     font-size: 1.2rem;
 }
 
-div[data-role="sign-in-btn-container"] {
+div[data-role="sign-up-btn-container"] {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-span[data-role="sign-in"]:hover {
+span[data-role="sign-up"]:hover {
     cursor: pointer;
 }
 
-span[data-role="sign-in"] {
+span[data-role="sign-up"] {
     text-align: center;
     padding: 0.4rem 1.2rem;
     background: var(--main-bg-color);
