@@ -28,7 +28,7 @@ model.compile(loss='mse', optimizer='adam', metrics=['accuracy'])
 model.fit(X_train, y_train, epochs=100)
 
 score = model.evaluate(X_test, y_test, verbose=0)
-print("\nTest loss:", format(score[0], ".4f"))
+print("\nTest loss:", format(score[0c], ".4f"))
 print("Test accuracy:", score[1])
 
 # # Cell 8
